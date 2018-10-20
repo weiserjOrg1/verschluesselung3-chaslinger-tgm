@@ -33,6 +33,16 @@ public class CiController implements ActionListener {
 				}
 				this.m1.setDecryptedText(this.v1.getText());
 			}
+			
+			if(this.v1.isKeyChecked()) {
+				this.m1.setNumber(3);
+				try {
+					this.m1.setKeywordCipher(this.v1.getKeyword());
+				}catch(AlphaException e1) {
+					JOptionPane.showMessageDialog(null, e1.toString(), "keyword Exception", JOptionPane.ERROR_MESSAGE);
+				}
+				this.m1.setDecryptedText(this.v1.getText());
+			}
 		}
 		
 		if(this.v1.isEncPressed(e)) {
@@ -52,6 +62,16 @@ public class CiController implements ActionListener {
 					this.m1.setShiftCipher(value);
 				}catch(NumberFormatException e1) {
 					JOptionPane.showMessageDialog(null, "Shift value must be a number", "Number Exception", JOptionPane.ERROR_MESSAGE);
+				}
+				this.m1.setEncryptedText(this.v1.getText());
+			}
+			
+			if(this.v1.isKeyChecked()) {
+				this.m1.setNumber(3);
+				try {
+					this.m1.setKeywordCipher(this.v1.getKeyword());
+				}catch(AlphaException e1) {
+					JOptionPane.showMessageDialog(null, e1.toString(), "keyword Exception", JOptionPane.ERROR_MESSAGE);
 				}
 				this.m1.setEncryptedText(this.v1.getText());
 			}

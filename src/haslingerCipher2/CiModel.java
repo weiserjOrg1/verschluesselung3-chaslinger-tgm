@@ -4,6 +4,7 @@ public class CiModel {
 	private String outText;
 	private SubstitutionCipher s1;
 	private ShiftCipher c1;
+	private KeywordCipher k1;
 	private int number;
 	
 	public CiModel() {
@@ -12,6 +13,7 @@ public class CiModel {
 		try {
 			this.s1 = new SubstitutionCipher("abcdefghijklmnopqrstuvwxyzäöüß");
 			this.c1 = new ShiftCipher(0);
+			this.k1 = new KeywordCipher("abcdefghijklmnopqrstuvwxyzäöüß");
 		}catch(AlphaException e) {
 			
 		}
@@ -25,11 +27,16 @@ public class CiModel {
 		}catch (AlphaException e) {
 		}
 	}
+	public void setKeywordCipher(String keyword) throws AlphaException{
+		this.k1.setKeyword(keyword);
+	}
 	public void setEncryptedText(String text) {
 		switch(this.number) {
 		case 1: this.outText = this.s1.encrypt(text);
 			break;
 		case 2: this.outText = this.c1.encrypt(text);
+			break;
+		case 3: this.outText = this.k1.encrypt(text);
 			break;
 		default:
 			break;
@@ -40,6 +47,8 @@ public class CiModel {
 		case 1: this.outText = this.s1.decrypt(text);
 			break;
 		case 2: this.outText = this.c1.decrypt(text);
+			break;
+		case 3: this.outText = this.k1.decrypt(text);
 			break;
 		default:
 			break;
