@@ -1,4 +1,8 @@
 package haslingerCipher2;
+/** This class encrypts/decrypts texts with a keyword
+ *  @author chris
+ *  @versio 20-10-2018
+ */
 import javax.swing.*;
 public class KeywordCipher extends MonoAlphabeticCipher{
 	public KeywordCipher(String keyword) throws AlphaException {
@@ -46,7 +50,6 @@ public class KeywordCipher extends MonoAlphabeticCipher{
 				secretAlphabet = secretAlphabet + alphabet.charAt(i);
 			}
 		}
-		JOptionPane.showMessageDialog(null, secretAlphabet);
 		super.setSecretAlphabet(secretAlphabet);
 	}
 }

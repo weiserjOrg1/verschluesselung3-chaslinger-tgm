@@ -1,4 +1,8 @@
 package haslingerCipher2;
+/** This class handles the Action Listener of the Buttons
+ *  @author chris
+ *  @version 20-10-2018
+ */
 import java.awt.*;
 import java.awt.event.*;
 
@@ -43,6 +47,20 @@ public class CiController implements ActionListener {
 				}
 				this.m1.setDecryptedText(this.v1.getText());
 			}
+			
+			if(this.v1.isTransChecked()) {
+				this.m1.setNumber(4);
+				int level = 0;
+				try {
+					level = Integer.parseInt(this.v1.getTransposition());
+					this.m1.setTranspositionLevel(level);
+				}catch(NumberFormatException e1) {
+					JOptionPane.showMessageDialog(null, "Transposition level must be a number", "Transposition Exception", JOptionPane.ERROR_MESSAGE);
+				}catch(AlphaException e1) {
+					JOptionPane.showMessageDialog(null, e1.toString(), "Transposition Exception", JOptionPane.ERROR_MESSAGE);
+				}
+				this.m1.setDecryptedText(this.v1.getText());
+			}
 		}
 		
 		if(this.v1.isEncPressed(e)) {
@@ -72,6 +90,20 @@ public class CiController implements ActionListener {
 					this.m1.setKeywordCipher(this.v1.getKeyword());
 				}catch(AlphaException e1) {
 					JOptionPane.showMessageDialog(null, e1.toString(), "keyword Exception", JOptionPane.ERROR_MESSAGE);
+				}
+				this.m1.setEncryptedText(this.v1.getText());
+			}
+			
+			if(this.v1.isTransChecked()) {
+				this.m1.setNumber(4);
+				int level = 0;
+				try {
+					level = Integer.parseInt(this.v1.getTransposition());
+					this.m1.setTranspositionLevel(level);
+				}catch(NumberFormatException e1) {
+					JOptionPane.showMessageDialog(null, "Transposition level must be a number", "Transposition Exception", JOptionPane.ERROR_MESSAGE);
+				}catch(AlphaException e1) {
+					JOptionPane.showMessageDialog(null, e1.toString(), "Transposition Exception", JOptionPane.ERROR_MESSAGE);
 				}
 				this.m1.setEncryptedText(this.v1.getText());
 			}
